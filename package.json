@@ -15,13 +15,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint '**/*.js'"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": ["salt", "salt/react"],
+    "rules": {
+      "react/jsx-closing-bracket-location": [
+        "error",
+        { "selfClosing": "after-props", "nonEmpty": "after-props" }
+      ],
+      "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+      "react/prop-types": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -34,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-salt": "^1.1.0"
   }
 }
